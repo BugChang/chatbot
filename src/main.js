@@ -13,8 +13,11 @@ import App from './App.vue'
 // Composables
 import { createApp } from 'vue'
 
+// vuex
+import store from './store';
+
 const app = createApp(App)
 
 registerPlugins(app)
 
-app.mount('#app')
+app.use(store).mount('#app')

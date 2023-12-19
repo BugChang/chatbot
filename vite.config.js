@@ -46,5 +46,17 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    proxy: {
+      '/api': {
+        target: 'https://dashscope.aliyuncs.com', // 你的目标服务器地址
+        changeOrigin: true,
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      '/wxyy': {
+        target: 'https://aip.baidubce.com', // 你的目标服务器地址
+        changeOrigin: true,
+         rewrite: (path) => path.replace(/^\/wxyy/, '')
+      }
+    }
   },
 })
